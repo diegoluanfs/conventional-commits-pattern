@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo - Conventional Commits</title>
+</head>
+<body>
+    <header>
+        <h1>Padrão Conventional Commits</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Introdução</h2>
+            <p>O padrão <strong>Conventional Commits</strong> é uma especificação que define uma maneira simples de estruturar mensagens de commit, facilitando a leitura e compreensão tanto por humanos quanto por máquinas. Essa padronização melhora a comunicação entre desenvolvedores e mantém o histórico do repositório organizado.</p>
+        </section>
+
+        <section>
+            <h2>Estrutura de uma mensagem de commit</h2>
+            <pre>
+                &lt;tipo&gt;(&lt;escopo opcional&gt;): &lt;assunto&gt;
+                &lt;corpo opcional&gt;
+                &lt;rodapé opcional&gt;
+            </pre>
+            <ul>
+                <li><strong>tipo:</strong> Define a categoria da mudança, como <code>feat</code> para nova funcionalidade ou <code>fix</code> para correção de bug.</li>
+                <li><strong>escopo:</strong> Opcional; especifica a parte do código afetada.</li>
+                <li><strong>assunto:</strong> Descrição breve da mudança, escrita no modo imperativo.</li>
+                <li><strong>corpo:</strong> Opcional; fornece detalhes adicionais sobre a mudança.</li>
+                <li><strong>rodapé:</strong> Opcional; inclui informações como referências a issues ou notas de breaking changes.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Tipos comuns de commits</h2>
+            <ul>
+                <li>
+                    <strong>feat:</strong> Adiciona nova funcionalidade ao código.<br>
+                    <em>Exemplo:</em> <code>feat: adicionar endpoint de autenticação</code>
+                </li>
+                <li>
+                    <strong>fix:</strong> Corrige um bug no código.<br>
+                    <em>Exemplo:</em> <code>fix: corrigir erro no cálculo de taxas</code>
+                </li>
+                <li>
+                    <strong>docs:</strong> Alterações na documentação.<br>
+                    <em>Exemplo:</em> <code>docs: atualizar README com instruções de instalação</code>
+                </li>
+                <li>
+                    <strong>style:</strong> Mudanças que não afetam o significado do código (espaços, formatação, etc.).<br>
+                    <em>Exemplo:</em> <code>style: ajustar indentação no arquivo de configuração</code>
+                </li>
+                <li>
+                    <strong>refactor:</strong> Alteração no código que não corrige bug nem adiciona funcionalidade.<br>
+                    <em>Exemplo:</em> <code>refactor: modularizar função de validação</code>
+                </li>
+                <li>
+                    <strong>test:</strong> Adiciona ou corrige testes.<br>
+                    <em>Exemplo:</em> <code>test: adicionar testes para o serviço de pagamento</code>
+                </li>
+                <li>
+                    <strong>chore:</strong> Atualizações de tarefas de build ou ferramentas auxiliares.<br>
+                    <em>Exemplo:</em> <code>chore: atualizar dependências do projeto</code>
+                </li>
+                <li>
+                    <strong>perf:</strong> Melhorias de performance no código.<br>
+                    <em>Exemplo:</em> <code>perf: otimizar consulta ao banco de dados</code>
+                </li>
+                <li>
+                    <strong>BREAKING CHANGE:</strong> Indica mudanças que quebram compatibilidade.<br>
+                    <em>Exemplo:</em> <code>feat!: remover suporte ao formato XML</code>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Exemplos específicos</h2>
+            <ul>
+                <li>
+                    <strong>Alteração em um endpoint existente:</strong><br>
+                    <em>Exemplo:</em> <code>feat(api): alterar o endpoint de login para suportar autenticação OAuth</code>
+                </li>
+                <li>
+                    <strong>Correção de bug em endpoint:</strong><br>
+                    <em>Exemplo:</em> <code>fix(api): corrigir resposta incorreta do endpoint de consulta de pedidos</code>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Uso do Commitlint</h2>
+            <p>O <strong>Commitlint</strong> é uma ferramenta que valida se as mensagens de commit seguem o padrão <strong>Conventional Commits</strong>. Ele é integrado ao processo de desenvolvimento, garantindo que todos os commits estejam em conformidade.</p>
+            <h3>Instalação e configuração</h3>
+            <ol>
+                <li>Instale o Commitlint e o Husky:<br>
+                    <code>npm install --save-dev @commitlint/{config-conventional,cli} husky</code>
+                </li>
+                <li>Crie o arquivo de configuração <code>commitlint.config.js</code>:<br>
+                    <pre><code>module.exports = { extends: ['@commitlint/config-conventional'] };</code></pre>
+                </li>
+                <li>Adicione um hook de pré-commit com o Husky:<br>
+                    <code>npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'</code>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Benefícios do uso do Conventional Commits</h2>
+            <ul>
+                <li><strong>Padronização:</strong> Mensagens consistentes facilitam a compreensão do histórico do projeto.</li>
+                <li><strong>Automação:</strong> Permite a geração automática de changelogs e facilita o versionamento semântico.</li>
+                <li><strong>Clareza:</strong> Ajuda a identificar rapidamente o propósito de cada commit.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Para mais detalhes, consulte a documentação oficial em <a href="https://www.conventionalcommits.org/" target="_blank">Conventional Commits</a>.</p>
+        </footer>
+    </main>
+</body>
+</html>
